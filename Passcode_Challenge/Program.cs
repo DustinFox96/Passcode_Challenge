@@ -6,21 +6,28 @@ namespace Passcode_Challenge
     {
         static void Main(string[] args)
         {
+            var code = "";
+
+            while(code != "secret")
+            {
             Console.WriteLine("What is the pass code?");
-            var code = Console.ReadLine().ToLower();
+            code = Console.ReadLine().ToLower();
+
+            if(code == "pass code")
+            {
+                Console.WriteLine("Nice try, but incorrect");
+            }
+            else if(code != "secret")
+            {
+                Console.WriteLine("Access Denied, Please insert correct Pass Code");
+            }
+
+            }
 
             if(code == "secret")
             {
                 Console.WriteLine("Access granted");
             }
-            else if(code != "secret")
-            {
-                Console.WriteLine("Access Denied, Please insert correct Pass Code");
-            }else if(code == "fake pass code")
-            {
-                Console.WriteLine("Nice try");
-            }
-
         }
     }
 }
